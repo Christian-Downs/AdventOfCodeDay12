@@ -1,0 +1,34 @@
+package Code;
+
+import java.awt.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args)
+	{
+		try {
+			File myFile = new File("test.txt");
+		
+			Scanner scn = new Scanner(myFile);
+			char direction = 'E';
+			int north =0,
+				east = 0;
+			while(scn.hasNextLine())
+			{
+				
+				String currentLine = scn.nextLine();
+				char currentDirection = currentLine.charAt(0);
+				int howFar = Integer.parseInt(currentLine.substring(1)) ;
+				
+				System.out.println(currentDirection + " " + howFar);
+			}
+			
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+}

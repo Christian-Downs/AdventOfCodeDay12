@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\AdventOfCode\Day12\.metadata\.plugins\org.eclipse.jdt.core
+3689629779.index
+92203307.index

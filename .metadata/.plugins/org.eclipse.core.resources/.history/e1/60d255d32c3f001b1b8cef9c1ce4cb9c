@@ -1,0 +1,92 @@
+package Code;
+
+import java.awt.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Solution {
+	public static char directionFacing = 'E';
+	public static int north =0,
+						east = 0;
+	public static void main(String[] args)
+	{
+		try {
+			File myFile = new File("test.txt");
+		
+			Scanner scn = new Scanner(myFile);
+
+			while(scn.hasNextLine())
+			{
+				
+				String currentLine = scn.nextLine();
+				char currentDirection = currentLine.charAt(0);
+				int howFar = Integer.parseInt(currentLine.substring(1)) ;
+				
+				switch(currentDirection)
+				{
+				case 'F':
+					switch(directionFacing)
+					{
+					case 'N':
+						North();
+					case 'E':
+						East();
+						break;
+					case 'W':
+						West();
+						break;
+					case 'S':
+						South();
+						break;
+					}
+					break;
+				case 'N':
+					North();
+					break;
+				case 'E':
+					East();
+					break;
+				case 'W':
+					West();
+					break;
+				case 'S':
+					South();
+					break;
+				}
+				
+				
+			}
+			
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public static void North()
+	{
+		north++;
+		directionFacing='N';
+	}
+	public static void South()
+	{
+		north--;
+		directionFacing='S';
+	}
+	public static void East()
+	{
+		east++;
+		directionFacing='E';
+	}
+	public static void West()
+	{
+		east--;
+		directionFacing='W';
+	}
+	
+	
+}

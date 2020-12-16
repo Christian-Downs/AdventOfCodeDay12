@@ -1,0 +1,97 @@
+package Code;
+
+import java.awt.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Solution {
+	public static char directionFacing = 'E';
+	public static int north =0,
+						east = 0;
+	public static void main(String[] args)
+	{
+		try {
+			File myFile = new File("test.txt");
+		
+			Scanner scn = new Scanner(myFile);
+
+			while(scn.hasNextLine())
+			{
+				
+				String currentLine = scn.nextLine();
+				char currentDirection = currentLine.charAt(0);
+				int howFar = Integer.parseInt(currentLine.substring(1)) ;
+				
+				switch(currentDirection)
+				{
+				case 'F':
+					switch(directionFacing)
+					{
+					case 'N':
+						North(howFar);
+					case 'E':
+						East(howFar);
+						break;
+					case 'W':
+						West(howFar);
+						break;
+					case 'S':
+						South(howFar);
+						break;
+					}
+					break;
+				case 'N':
+					North(howFar);
+					break;
+				case 'E':
+					East(howFar);
+					break;
+				case 'W':
+					West(howFar);
+					break;
+				case 'S':
+					South(howFar);
+					break;
+				}
+				
+			}
+			
+			System.out.println("We went " + north + " North and " + east + " East");
+			
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public static void North(int howManyTimes)
+	{
+		System.out.println("North " + howManyTimes);
+		north+= howManyTimes;
+		directionFacing='N';
+	}
+	public static void South(int howManyTimes)
+	{
+		System.out.println("South " + howManyTimes);
+		north-= howManyTimes;
+		directionFacing='S';
+	}
+	public static void East(int howManyTimes)
+	{
+		System.out.println("East " + howManyTimes);
+		east+= howManyTimes;
+		directionFacing='E';
+	}
+	public static void West(int howManyTimes)
+	{
+		System.out.println("West " + howManyTimes);
+		east-= howManyTimes;
+		directionFacing='W';
+	}
+	
+	
+}
